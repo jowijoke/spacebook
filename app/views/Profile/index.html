@@ -10,8 +10,8 @@
 
 <section class="ui segment">
   <h2 class="ui header">${user.firstName}'s Profile</h2>
-  <h3 class="about">Age: ${user.age}
-   Nationality: ${user.nationality}</h3>
+  <h3 class="about">Age: ${user.age}</h3>
+   <h4> Nationality: ${user.nationality}</h4>
   <div class="ui two column grid segment">
     <div class="ui row">
       <div class="ui column">
@@ -22,6 +22,7 @@
           <input type="file" name="picture" /> 
           <input type="submit" name="submit" value="upload" />
         </form>
+        <input class="ui yellow button" type="submit" name="submit" value="Edit Profile" /> 
       </div>
       <div class="ui column form segment">
         <h2 class="ui small header"> Status</h2>
