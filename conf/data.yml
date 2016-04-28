@@ -60,3 +60,51 @@ User(apu):
     email: apu@nahasapeemapetilon.com
     password: secret
     statusText: Can anyone pronounce my last name
+    
+Friendship(friend1):
+  sourceUser: homer
+  targetUser: marge
+  
+Friendship(friend2):
+ sourceUser: homer
+ targetUser: lisa
+ 
+Friendship(friend3):
+ sourceUser: marge
+ targetUser: homer
+ 
+ 
+ User(homer):
+    firstName: Homer
+    lastName: Simpson
+    age: 36
+    nationality: American
+    email: homer@simpson.com
+    password: secret
+    statusText: I love Moe's Tavern
+    friendships:
+                -friend1
+                -friend2
+ 
+ User(marge):
+    firstName: Marge
+    lastName: Simpson
+    age: 32
+    nationality: American
+    email: marge@simpson.com
+    password: secret
+    statusText: I love my family
+    friendships:
+                -friend3
+ 
+Message(message1):
+ from : marge
+ to : homer
+ subject: hello
+ messageText: 'how are things going?'
+
+Message(message2):
+ from : homer
+ to : marge
+ subject: problem
+ messageText: 'Get me outta here!'  

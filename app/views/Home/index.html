@@ -46,7 +46,9 @@
       <div class="ui list">
           #{list items:user.inbox, as:'message'}
             <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image"></h4>
+            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image">
+            ${message.from.firstName}
+            </h4>
             </div>
           #{/list}
         </div>
