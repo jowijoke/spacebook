@@ -16,6 +16,9 @@
           <img src="/profile/getpicture/${user.id}"/> 
         </div>  
         <form action="/publicprofile/sendmessage/${user.id}" class="ui form" method="post">
+          <div class="subject">
+          <input placeholder="Subject" type="text" name="subject">
+          </div>
           <div class="field">
             <textarea name="messageText"></textarea>
           </div>
@@ -30,10 +33,17 @@
         <ul>
           #{list items:user.inbox, as:'message'}
             <li> 
-              ${message.from.firstName} says...  ${message.messageText}
+              ${message.from.firstName} 
             </li>
+            </ul>
+            <ul>
+            subject: ${message.subject}
+            </ul>
+            <ul>
+            ${message.messageText}
+            </ul>
           #{/list}
-        </ul>
+        
       </div>
     </div>
   </section>    

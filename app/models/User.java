@@ -76,9 +76,9 @@ public class User extends Model
     save();
   }
   
-  public void sendMessage (User to, String messageText)
+  public void sendMessage (User to, String subject, String messageText)
   {
-    Message message = new Message (this, to, messageText);
+    Message message = new Message (this, to, subject, messageText);
     outbox.add(message);
     to.inbox.add(message);
     message.save();

@@ -1,32 +1,53 @@
 #{extends 'main.html' /} #{set title:'Members' /}
 
 <nav class="ui menu">
-	<a class="ui item" href="/home">Home</a> <a class="ui active item"
-		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
-	<a class="ui item" href="/login">Logout</a>
+	<a class="ui item" href="/home">Home</a> 
+	<a class="ui active item" href="/members">Members</a> 
+	<a class="ui item" href="/profile">Profile</a>
+  <a class="ui item" href="/leaderboard">Leaderboard</a>   
+  <a class="ui item" href="/login">Logout</a>      
 </nav>
 
 <table class="ui segment">
-	<thead>
-     <tr>
-      <th>SpaceBook's Members & Status</th>
-	</tr>
-	</thead>
-	<tbody>
-	 <tr>
-	  <td>
-		<div class="ui list">
+  <thead>
+    <tr><th>Members</th>
+    <th>Status</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>
+      
+        <div class="ui list">
 		 #{list items:users, as:'user'}
 		 <div class="content">
 		 <h4 class="ui image header">
-		 <img src= "/profile/getpicture/${user.id}" class="ui rounded image"></h4>
+		 <img src= "/profile/getpicture/${user.id}" class="ui mini rounded image"></h4>
 		  ${user.firstName} ${user.lastName}  <a
 		  href="/members/follow/${user.id}"> (follow) </a> 
-		  ${user.statusText}
 		  #{/list}
-		 </div>
+		   </div>
         </div>
-	  </td>
-	 </tr>
-	</tbody>
+      
+      </td>
+      <td>
+       <div class="ui list">
+      #{list items:users, as:'user'}
+      <div class="content">
+        <h4>${user.statusText}</h4>
+        #{/list}
+        </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+
+
+
+
+
+
+
+
+
