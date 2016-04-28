@@ -20,7 +20,7 @@ public class User extends Model
   public String password;
   public String statusText;
   
-  public Blob   profilePicture;
+  public Blob profilePicture;
   
   @OneToMany(mappedBy = "sourceUser")
   public List<Friendship> friendships = new ArrayList<Friendship>();

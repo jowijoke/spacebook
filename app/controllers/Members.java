@@ -12,6 +12,9 @@ public class Members extends Controller
   public static void index()
   {
     List<User> users = User.findAll();
+    String userId = session.get("logged_in_userid");
+    User me = User.findById(Long.parseLong(userId));
+    users.remove(me);
     render(users);
   }
   
