@@ -30,13 +30,10 @@ public class Accounts extends Controller
     render();
   }
   
-  public static void register(String firstName, String lastName, String age, String nationality, String email, String password)
+  public static void register(User user)
   {
-    Logger.info(firstName + " " + lastName + " " + age + " " + nationality + " " + email + " " + password);
-    
-    User user = new User (firstName, lastName, age, nationality, email, password);
+    Logger.info(user.firstName + " " + user.lastName + " " + user.age + " " + user.nationality + " " + user.email + " " + user.password);
     user.save();
-    
     index();
   }
 

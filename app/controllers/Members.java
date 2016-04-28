@@ -15,6 +15,7 @@ public class Members extends Controller
     String userId = session.get("logged_in_userid");
     User me = User.findById(Long.parseLong(userId));
     users.remove(me);
+    
     render(users);
   }
   
