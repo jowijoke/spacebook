@@ -6,5 +6,68 @@
   <a class="ui item" href="/members">Members</a>   
   <a class="ui item" href="/profile">Profile</a>
   <a class="ui active item" href="/leaderboard">Leaderboard</a>   
-  <a class="ui item" href="/login">Logout</a>      
+  <a class="ui item" href="/logout">Logout</a>      
 </nav>
+
+
+
+<div class="ui column">
+        <h2>Leaderboard</h2>
+        <div class="ui list">
+         <table class="ui fixed table">
+  <thead>
+    <tr>
+    <th>User</th>
+    <th>Inbox</th>
+    <th>Outbox</th>
+    <th>Friends</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <div class="ui list">
+          #{list items:user, as:'user'}
+            <div class="item">
+            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image">
+            ${user.firstName}
+            </h4>
+            </div>
+          #{/list}
+        </div>
+        </td>
+      <td>
+       <div class="ui list">
+       #{list items:user.inbox, as:'inbox'}
+       <div class="item">
+ 
+      </div>
+       #{/list}
+      </div>
+      </td>
+      
+      <td>
+      <div class="ui list">
+       #{list items:user.outbox, as:'outbox'}
+       <div class="item">
+ 
+      </div>
+       #{/list}
+      </div>
+      </td>
+      
+       <td>
+      <div class="ui list">
+       #{list items:friendship.targetUser, as:'friends'}
+       <div class="item">
+       
+       </div>
+       #{/list}
+       </div>
+       </td>
+      
+    </tr>
+  </tbody>
+</table>
+        </div>      
+        </div>

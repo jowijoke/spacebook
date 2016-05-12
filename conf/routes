@@ -11,21 +11,26 @@ GET    /signup                                  Accounts.signup
 GET    /login                                   Accounts.login
 GET    /logout                                  Accounts.logout
 POST   /authenticate                            Accounts.authenticate
-POST   /register                                Accounts.register
+POST   /register                                Accounts.register								
 
 # Home page
-GET     /home                                   Home.index
+GET     /home                                   Home.index(sort:String)
 GET     /home/drop/{id}                         Home.drop
 
 # Members page
 GET     /members                                Members.index
 GET     /members/follow/{id}                    Members.follow
 
+# Leaderboard page
+GET		/leaderboard							leaderboard.index
+
 # Profile page
 GET     /profile                                Profile.index
 POST    /profile/changestatus                   Profile.changeStatus
 POST    /profile/uploadpicture/{id}             Profile.uploadPicture
 GET     /profile/getpicture/{id}                Profile.getPicture
+GET     /edit									Profile.editProfile
+POST	/edit									Profile.changeProfile
 
 # Public Profiles
 GET     /publicprofile/{id}                     PublicProfile.visit

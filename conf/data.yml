@@ -6,6 +6,8 @@ User(homer):
     email: homer@simpson.com
     password: secret
     statusText: I love Moe's Tavern
+    hobby: drink
+    sport: football
 
 User(marge):
     firstName: Marge
@@ -60,20 +62,32 @@ User(apu):
     email: apu@nahasapeemapetilon.com
     password: secret
     statusText: Can anyone pronounce my last name
-    
+
 Friendship(friend1):
   sourceUser: homer
   targetUser: marge
-  
+
 Friendship(friend2):
  sourceUser: homer
  targetUser: lisa
- 
+
 Friendship(friend3):
  sourceUser: marge
  targetUser: homer
+
+Friendship(friend4):
+ sourceUser: lisa
+ targetUser: homer
+
+Friendship(friend5):
+ sourceUser: homer
+ targetUser: bart
  
+Friendship(friend6):
+ sourceUser: bart
+ targetUser: homer
  
+
  User(homer):
     firstName: Homer
     lastName: Simpson
@@ -82,10 +96,13 @@ Friendship(friend3):
     email: homer@simpson.com
     password: secret
     statusText: I love Moe's Tavern
+    hobby: drink
+    sport: football
     friendships:
                 -friend1
                 -friend2
- 
+                -friend5
+
  User(marge):
     firstName: Marge
     lastName: Simpson
@@ -96,15 +113,88 @@ Friendship(friend3):
     statusText: I love my family
     friendships:
                 -friend3
- 
+
+ User(lisa):
+    firstName: Lisa
+    lastName: Simpson
+    age: 8
+    nationality: American
+    email: lisa@simpson.com
+    password: secret
+    statusText: Doe's anyone love jazz?
+    friendships:
+                -friend4
+                
+User(bart):
+    firstName: Bart
+    lastName: Simpson
+    age: 10
+    nationality: American
+    email: bart@simpson.com
+    password: secret
+    statusText: Don't have a cow man
+    friendships:
+               -friend6
+
 Message(message1):
  from : marge
  to : homer
- subject: hello
- messageText: 'how are things going?'
+ subject: problem
+ postedAt: 2016-04-14t15:10:15:05
+ messageText: "Where are you off to?"
 
 Message(message2):
  from : homer
  to : marge
  subject: problem
- messageText: 'Get me outta here!'  
+ postedAt: 2016-04-14t15:20:25:05
+ messageText: "I'm off to the pub?"
+ 
+Message(message3):
+ from : lisa
+ to : homer
+ subject: issue
+ postedAt: 2016-04-14t15:30:35:05
+ messageText: "Why are you not at work?"
+ 
+Message(message4):
+ from : marge
+ to : homer
+ subject: pub
+ postedAt: 2016-04-14t15:40:45:05
+ messageText: 'Why are you going to the pub?'
+ 
+Message(message5):
+ from : homer
+ to : marge
+ subject: pub
+ postedAt: 2016-04-14t15:50:55:05
+ messageText: 'Doh!'   
+ 
+Message(message6):
+ from : marge
+ to : homer
+ subject: pub
+ postedAt: 2016-04-14t16:10:15:05
+ messageText: "Don't be late!"
+
+Message(message7):
+ from : lisa
+ to : homer
+ subject: issue
+ postedAt: 2016-04-14t16:20:25:05
+ messageText: 'Explain Yourself?'
+
+Message(message8):
+ from : homer
+ to : lisa
+ subject: issue
+ postedAt: 2016-04-14t16:30:35:05
+ messageText: 'I am working!'
+
+Message(message9):
+ from : marge
+ to : lisa
+ subject: dad
+ postedAt: 2016-04-14t16:40:45:05
+ messageText: 'Get your dad from the pub please'

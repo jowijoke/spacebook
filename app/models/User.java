@@ -19,6 +19,8 @@ public class User extends Model
   public String age;
   public String password;
   public String statusText;
+  public String hobby;
+  public String sport;
   
   public Blob profilePicture;
   

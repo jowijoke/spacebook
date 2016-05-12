@@ -25,7 +25,33 @@ public class Profile extends Controller
     user.save();
     Logger.info("Status changed to " + profiletext);
     index();
-  } 
+  }
+  
+  public static void editProfile()
+  {
+	  render();
+	  
+  }
+  
+  public static void changeProfile(String hobby, String sport)
+  {
+	 String userId = session.get("logged_in_userid");
+	 User user = User.findById(Long.parseLong(userId));
+	 
+	 if (!hobby.equals("")){
+		 user.hobby = hobby;
+		 Logger.info("Hobby is being changed to " + hobby);
+	}
+	 
+	 if (!sport.equals("")){
+		 user.sport = sport;
+		 Logger.info("Sport is being changed to " + sport);
+		 
+	 }
+	user.save();
+	index();
+	 
+  }
   
   public static void getPicture(Long id) 
   {
