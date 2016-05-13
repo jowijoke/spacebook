@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'editProfile' /}
+
+<nav class="ui menu">
+  <a class="item" href="/profile">  Back   </a>
+</nav> 
+
+<section class="ui form segment">
+	<form action="/edit" method="POST">
+	  <div class="two fields">
+	    <div class="field">
+	      <label>Hobby</label>
+	      <input placeholder="hobby" type="text" name="hobby">
+	    </div>
+	    <div class="field">
+	      <label>Sport</label>
+	      <input placeholder="sport" type="text" name="sport">
+	    </div>
+	    </div>
+	  <button class="ui blue submit button">Submit</button>
+	</form>
+</section>  

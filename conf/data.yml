@@ -140,61 +140,61 @@ Message(message1):
  from : marge
  to : homer
  subject: problem
- postedAt: 2016-04-14t15:10:15:05
+ postedAt: 2016-04-14t15:10:15.05
  messageText: "Where are you off to?"
 
 Message(message2):
  from : homer
  to : marge
  subject: problem
- postedAt: 2016-04-14t15:20:25:05
+ postedAt: 2016-04-14t15:20:25.05
  messageText: "I'm off to the pub?"
  
 Message(message3):
  from : lisa
  to : homer
  subject: issue
- postedAt: 2016-04-14t15:30:35:05
+ postedAt: 2016-04-14t15:30:35.05
  messageText: "Why are you not at work?"
  
 Message(message4):
  from : marge
  to : homer
  subject: pub
- postedAt: 2016-04-14t15:40:45:05
+ postedAt: 2016-04-14t15:40:45.05
  messageText: 'Why are you going to the pub?'
  
 Message(message5):
  from : homer
  to : marge
  subject: pub
- postedAt: 2016-04-14t15:50:55:05
+ postedAt: 2016-04-14t15:50:55.05
  messageText: 'Doh!'   
  
 Message(message6):
  from : marge
  to : homer
  subject: pub
- postedAt: 2016-04-14t16:10:15:05
+ postedAt: 2016-04-14t16:10:15.05
  messageText: "Don't be late!"
 
 Message(message7):
  from : lisa
  to : homer
  subject: issue
- postedAt: 2016-04-14t16:20:25:05
+ postedAt: 2016-04-14t16:20:25.05
  messageText: 'Explain Yourself?'
 
 Message(message8):
  from : homer
  to : lisa
  subject: issue
- postedAt: 2016-04-14t16:30:35:05
+ postedAt: 2016-04-14t16:30:35.05
  messageText: 'I am working!'
 
 Message(message9):
  from : marge
  to : lisa
  subject: dad
- postedAt: 2016-04-14t16:40:45:05
+ postedAt: 2016-04-14t16:40:45.05
  messageText: 'Get your dad from the pub please'

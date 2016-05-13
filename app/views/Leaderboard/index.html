@@ -9,65 +9,59 @@
   <a class="ui item" href="/logout">Logout</a>      
 </nav>
 
-
-
-<div class="ui column">
-        <h2>Leaderboard</h2>
-        <div class="ui list">
-         <table class="ui fixed table">
-  <thead>
+   
+        <table class="ui fixed table">
+  	<thead>
     <tr>
     <th>User</th>
     <th>Inbox</th>
     <th>Outbox</th>
-    <th>Friends</th>
+    <th>Friendship</th>
   </tr>
   </thead>
   <tbody>
+  <a class="ui black button" href="/leaderboard?sort=social">By Social</a>
+  			<a class="ui black button" href="/leaderboard?sort=talkative">By Talkative</a>
+  #{list items:users, as:'user'}
     <tr>
       <td>
       <div class="ui list">
-          #{list items:user, as:'user'}
             <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image">
+            <h4 class="ui image header"><img src= "/profile/getpicture/${user.id}" class="ui rounded image">
             ${user.firstName}
             </h4>
             </div>
-          #{/list}
         </div>
         </td>
+      
+      
       <td>
        <div class="ui list">
-       #{list items:user.inbox, as:'inbox'}
        <div class="item">
- 
+      <h4>${user.inbox.size()}</h4>
       </div>
-       #{/list}
+      </div>
+      </td>
+      
+      
+      
+      <td>
+      <div class="ui list">
+       <div class="item">
+      <h4>${user.outbox.size()}</h4>
+      </div>
       </div>
       </td>
       
       <td>
       <div class="ui list">
-       #{list items:user.outbox, as:'outbox'}
        <div class="item">
- 
+      <h4>${user.friendships.size()}</h4>
       </div>
-       #{/list}
       </div>
       </td>
       
-       <td>
-      <div class="ui list">
-       #{list items:friendship.targetUser, as:'friends'}
-       <div class="item">
-       
-       </div>
-       #{/list}
-       </div>
-       </td>
-      
     </tr>
+    #{/list}
   </tbody>
-</table>
-        </div>      
-        </div>
+  </table>

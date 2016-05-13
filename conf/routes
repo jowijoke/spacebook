@@ -22,7 +22,7 @@ GET     /members                                Members.index
 GET     /members/follow/{id}                    Members.follow
 
 # Leaderboard page
-GET		/leaderboard							leaderboard.index
+GET		/leaderboard							Leaderboard.index(sort:String)
 
 # Profile page
 GET     /profile                                Profile.index
