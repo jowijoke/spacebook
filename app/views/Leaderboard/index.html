@@ -1,67 +1,60 @@
-#{extends 'main.html' /}
-#{set title:'Leaderboard' /}
+#{extends 'main.html' /} #{set title:'Leaderboard' /}
 
-<nav class="ui menu"> 
-  <a class="ui item" href="/home">Home</a>      
-  <a class="ui item" href="/members">Members</a>   
-  <a class="ui item" href="/profile">Profile</a>
-  <a class="ui active item" href="/leaderboard">Leaderboard</a>   
-  <a class="ui item" href="/logout">Logout</a>      
+<nav class="ui menu">
+	<a class="ui item" href="/home">Home</a> <a class="ui item"
+		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
+	<a class="ui active item" href="/leaderboard">Leaderboard</a> <a
+		class="ui item" href="/logout">Logout</a>
 </nav>
 
-   
-        <table class="ui fixed table">
-  	<thead>
-    <tr>
-    <th>User</th>
-    <th>Inbox</th>
-    <th>Outbox</th>
-    <th>Friendship</th>
-  </tr>
-  </thead>
-  <tbody>
-  <a class="ui black button" href="/leaderboard?sort=social">By Social</a>
-  			<a class="ui black button" href="/leaderboard?sort=talkative">By Talkative</a>
-  #{list items:users, as:'user'}
-    <tr>
-      <td>
-      <div class="ui list">
-            <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${user.id}" class="ui rounded image">
-            ${user.firstName}
-            </h4>
-            </div>
-        </div>
-        </td>
-      
-      
-      <td>
-       <div class="ui list">
-       <div class="item">
-      <h4>${user.inbox.size()}</h4>
-      </div>
-      </div>
-      </td>
-      
-      
-      
-      <td>
-      <div class="ui list">
-       <div class="item">
-      <h4>${user.outbox.size()}</h4>
-      </div>
-      </div>
-      </td>
-      
-      <td>
-      <div class="ui list">
-       <div class="item">
-      <h4>${user.friendships.size()}</h4>
-      </div>
-      </div>
-      </td>
-      
-    </tr>
-    #{/list}
-  </tbody>
-  </table>
+
+<table class="ui fixed table">
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Inbox</th>
+			<th>Outbox</th>
+			<th>Friendship</th>
+		</tr>
+	</thead>
+	<tbody>
+		<a class="ui black button" href="/leaderboard?sort=social">By
+			Social</a>
+		<a class="ui black button" href="/leaderboard?sort=talkative">By
+			Talkative</a> #{list items:users, as:'user'}
+		<tr>
+			<td>
+				<div class="ui list">
+					<div class="item">
+						<h4 class="ui image header">
+							<img src="/profile/getpicture/${user.id}"
+								class="ui rounded image"> ${user.firstName}
+						</h4>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="ui list">
+					<div class="item">
+						<h4>${user.inbox.size()}</h4>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="ui list">
+					<div class="item">
+						<h4>${user.outbox.size()}</h4>
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="ui list">
+					<div class="item">
+						<h4>${user.friendships.size()}</h4>
+					</div>
+				</div>
+			</td>
+		</tr>
+		#{/list}
+	</tbody>
+</table>

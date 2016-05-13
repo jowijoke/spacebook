@@ -1,50 +1,47 @@
-#{extends 'main.html' /}
-#{set title:'Spacebook' /}
+#{extends 'main.html' /} #{set title:'Spacebook' /}
 
-<nav class="ui menu">   
-  <a class="ui active item" href="/home">Back to Home</a> 
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Back to Home</a>
 </nav>
 
 <section class="ui raised segment">
-  <div class="ui small header"> ${user.firstName} ${user.lastName}'s Profile</div>
-  <p> ${user.statusText} </p>
-  <section class="ui  two column grid segment">
-  <h3 class="about"> Nationality: ${user.nationality}</h3>
-    <div class="row">
-      <div class="column">
-        <div class="ui medium image">
-          <img src="/profile/getpicture/${user.id}"/> 
-        </div>  
-        <form action="/publicprofile/sendmessage/${user.id}" class="ui form" method="post">
-          <div class="subject">
-          <input placeholder="Subject" type="text" name="subject">
-          </div>
-          <div class="field">
-            <textarea name="messageText"></textarea>
-          </div>
-          <button  class="ui fluid blue labeled submit icon button">
-            <i class="icon edit"></i> Send
-          </button>
-        </form>        
-      </div>
-      <div class="column">
-        <h2> Messages </h2> 
-        <hr>
-        <ul>
-          #{list items:user.inbox, as:'message'}
-            <li> 
-              ${message.from.firstName} 
-            </li>
-            </ul>
-            <ul>
-            subject: ${message.subject}
-            </ul>
-            <ul>
-            ${message.messageText}
-            </ul>
-          #{/list}
-        
-      </div>
-    </div>
-  </section>    
+	<div class="ui small header">${user.firstName} ${user.lastName}'s
+		Profile</div>
+	<p>${user.statusText}</p>
+	<section class="ui  two column grid segment">
+		<h3 class="about">Nationality: ${user.nationality}</h3>
+		<div class="row">
+			<div class="column">
+				<div class="ui medium image">
+					<img src="/profile/getpicture/${user.id}" />
+				</div>
+				<form action="/publicprofile/sendmessage/${user.id}" class="ui form"
+					method="post">
+					<div class="subject">
+						<input placeholder="Subject" type="text" name="subject">
+					</div>
+					<div class="field">
+						<textarea name="messageText"></textarea>
+					</div>
+					<button class="ui fluid blue labeled submit icon button">
+						<i class="icon edit"></i> Send
+					</button>
+				</form>
+			</div>
+			<div class="column">
+				<h2>Messages</h2>
+				<hr>
+				<ul>
+					#{list items:user.inbox, as:'message'}
+					<li>${message.from.firstName}</li>
+				</ul>
+				<ul>subject: ${message.subject}
+				</ul>
+				<ul>${message.messageText}
+				</ul>
+				#{/list}
+
+			</div>
+		</div>
+	</section>
 </section>

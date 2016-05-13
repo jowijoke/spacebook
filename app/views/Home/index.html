@@ -1,173 +1,166 @@
-#{extends 'main.html' /}
-#{set title:'Home' /}
+#{extends 'main.html' /} #{set title:'Home' /}
 
-<nav class="ui menu"> 
-  <a class="ui active item" href="/home">Home</a>      
-  <a class="ui item" href="/members">Members</a>   
-  <a class="ui item" href="/profile">Profile</a>
-  <a class="ui item" href="/leaderboard">Leaderboard</a>   
-  <a class="ui item" href="/logout">Logout</a>      
+<nav class="ui menu">
+	<a class="ui active item" href="/home">Home</a> <a class="ui item"
+		href="/members">Members</a> <a class="ui item" href="/profile">Profile</a>
+	<a class="ui item" href="/leaderboard">Leaderboard</a> <a
+		class="ui item" href="/logout">Logout</a>
 </nav>
 
 <section class="ui segment">
-  <h2 class="ui header">SpaceBook: Home page for ${user.firstName} ${user.lastName}</h2>
-  <div class="ui two column grid segment">
-    <div class="ui row">
-      <div class="ui column">
-        <h2>Friends (${user.friendships.size()})</h2>
-        <div class="ui list">
-         #{list items:user.friendships, as:'friendship'}
-         <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${friendship.targetUser.id}" class="ui rounded image"></h4>
-            <div class="content">
-            <a href="/publicprofile/${friendship.targetUser.id}"> ${friendship.targetUser.firstName} ${friendship.targetUser.lastName}</a>
-             (<a href="/home/drop/${friendship.targetUser.id}"> drop </a>)
-              </div>
-            </div>
-          #{/list}
-        </div>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <div class="ui column">
-        <h2>Messages</h2>
-        <div class="ui list">
-        	<a class="ui red button" href="/home?sort=date">By Date</a>
-  			<a class="ui red button" href="/home?sort=user">By User</a>
- 			 <a class="ui red button" href="/home?sort=con">By Conversation</a>
-      #{if conversations}
-        #{list conversations, as: 'conversation'}
-       
-        <table class="ui fixed table">
-  	<thead>
-    <tr>
-    <th>Sender</th>
-    <th>Subject</th>
-    <th>Message</th>
-  </tr>
-  </thead>
-  <tbody>
-  #{list items:conversation, as:'message'}
-    <tr>
-      <td>
-      <div class="ui list">
-            <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image">
-            ${message.from.firstName}
-            </h4>
-            </div>
-          
-        </div>
-        </td>
-      <td>
-       <div class="ui list">
-       <div class="item">
-      <h4>${message.subject}</h4>
-      </div>
-     
-      </div>
-      </td>
-      <td>
-      <div class="ui list">
-      
-       <div class="item">
-      <h4>${message.messageText}</h4>
-      </div>
-      </div>
-      </td>
-    </tr>
-    #{/list}
-  </tbody>
-  </table>
-  #{/list}
-        
- #{/if}
- #{else}
- 
-  <table class="ui fixed table">
-  <thead>
-    <tr>
-    <th>Sender</th>
-    <th>Subject</th>
-    <th>Message</th>
-  </tr>
-  </thead>
-  <tbody>
-    
-      <div class="ui list">
-          #{list items:user.inbox, as:'message'}
-          <tr>
-      <td>
-            <div class="item">
-            <h4 class="ui image header"><img src= "/profile/getpicture/${message.from.id}" class="ui rounded image">
-            ${message.from.firstName}
-            </h4>
-            </div>
-        </div>
-        </td>
-      <td>
-       <div class="ui list">
-       <div class="item">
-      <h4>${message.subject}</h4>
-      </div>
-      </div>
-      
-      </td>
-      <td>
-      <div class="ui list">
-       <div class="item">
-      <h4>${message.messageText}</h4>
-      </div>
-      </td>
-    </tr>
-       #{/list}
-      </div>
-      
-  </tbody>
+	<h2 class="ui header">SpaceBook: Home page for ${user.firstName}
+		${user.lastName}</h2>
+	<div class="ui two column grid segment">
+		<div class="ui row">
+			<div class="ui column">
+				<h2>Friends (${user.friendships.size()})</h2>
+				<div class="ui list">
+					#{list items:user.friendships, as:'friendship'}
+					<div class="item">
+						<h4 class="ui image header">
+							<img src="/profile/getpicture/${friendship.targetUser.id}"
+								class="ui rounded image">
+						</h4>
+						<div class="content">
+							<a href="/publicprofile/${friendship.targetUser.id}">
+								${friendship.targetUser.firstName}
+								${friendship.targetUser.lastName}</a> (<a
+								href="/home/drop/${friendship.targetUser.id}"> drop </a>)
+						</div>
+					</div>
+					#{/list}
+				</div>
+			</div>
+			<div class="ui column">
+				<h2>Messages</h2>
+				<div class="ui list">
+					<a class="ui red button" href="/home?sort=date">By Date</a> <a
+						class="ui red button" href="/home?sort=user">By User</a> <a
+						class="ui red button" href="/home?sort=con">By Conversation</a>
+					#{if conversations} #{list conversations, as: 'conversation'}
 
-</table>
+					<table class="ui fixed table">
+						<thead>
+							<tr>
+								<th>Sender</th>
+								<th>Subject</th>
+								<th>Message</th>
+							</tr>
+						</thead>
+						<tbody>
+							#{list items:conversation, as:'message'}
+							<tr>
+								<td>
+									<div class="ui list">
+										<div class="item">
+											<h4 class="ui image header">
+												<img src="/profile/getpicture/${message.from.id}"
+													class="ui rounded image"> ${message.from.firstName}
+											</h4>
+										</div>
 
-        </div>      
-        </div>
-  #{/else}  
-    </div>
-  </div>
-  
-   
-       
-  
-  
-  
-  
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+									</div>
+								</td>
+								<td>
+									<div class="ui list">
+										<div class="item">
+											<h4>${message.subject}</h4>
+										</div>
+
+									</div>
+								</td>
+								<td>
+									<div class="ui list">
+
+										<div class="item">
+											<h4>${message.messageText}</h4>
+										</div>
+									</div>
+								</td>
+							</tr>
+							#{/list}
+						</tbody>
+					</table>
+					#{/list} #{/if} #{else}
+
+					<table class="ui fixed table">
+						<thead>
+							<tr>
+								<th>Sender</th>
+								<th>Subject</th>
+								<th>Message</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<div class="ui list">
+								#{list items:user.inbox, as:'message'}
+								<tr>
+									<td>
+										<div class="item">
+											<h4 class="ui image header">
+												<img src="/profile/getpicture/${message.from.id}"
+													class="ui rounded image"> ${message.from.firstName}
+											</h4>
+										</div>
+							</div>
+							</td>
+							<td>
+								<div class="ui list">
+									<div class="item">
+										<h4>${message.subject}</h4>
+									</div>
+								</div>
+
+							</td>
+							<td>
+								<div class="ui list">
+									<div class="item">
+										<h4>${message.messageText}</h4>
+									</div>
+							</td>
+							</tr>
+							#{/list}
+							</div>
+
+						</tbody>
+
+					</table>
+
+				</div>
+			</div>
+			#{/else}
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
