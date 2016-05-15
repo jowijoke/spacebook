@@ -13,28 +13,26 @@ import models.Message;
  * @author jfitzgerald
  *
  */
-public class MessageFromComparator implements Comparator<Message>
-{
-  /**
-   * Performs a lexicographic comparison the String name fields of the sending
-   * user (that is User from) in 2 Message objects
-   * 
-   * @param o1
-   *          the first message object
-   * @param o2
-   *          the second message object
-   * @return 0 if the user name in o1 is equal to the name in o2 less than zero
-   *         if name in o1 less than name in o2 greater than zero if name in o2
-   *         greater than name in o2
-   */
-  @Override
-  public int compare(Message o1, Message o2)
-  {
+public class MessageFromComparator implements Comparator<Message> {
+	/**
+	 * Performs a lexicographic comparison the String name fields of the sending
+	 * user (that is User from) in 2 Message objects
+	 * 
+	 * @param o1
+	 *            the first message object
+	 * @param o2
+	 *            the second message object
+	 * @return 0 if the user name in o1 is equal to the name in o2 less than
+	 *         zero if name in o1 less than name in o2 greater than zero if name
+	 *         in o2 greater than name in o2
+	 */
+	@Override
+	public int compare(Message o1, Message o2) {
 
-    String s1 = o1.from.firstName + o1.from.lastName;
-    String s2 = o2.from.firstName + o2.from.lastName;
+		String s1 = o1.from.firstName + o1.from.lastName;
+		String s2 = o2.from.firstName + o2.from.lastName;
 
-    return s1.compareTo(s2);
-  }
+		return s1.compareTo(s2);
+	}
 
 }

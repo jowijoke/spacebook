@@ -33,12 +33,12 @@
 			</div>
 			<div class="ui column">
 				<h2>Messages</h2>
+				
 				<div class="ui list">
 					<a class="ui red button" href="/home?sort=date">By Date</a> <a
 						class="ui red button" href="/home?sort=user">By User</a> <a
 						class="ui red button" href="/home?sort=con">By Conversation</a>
 					#{if conversations} #{list conversations, as: 'conversation'}
-
 					<table class="ui fixed table">
 						<thead>
 							<tr>
@@ -81,8 +81,10 @@
 							#{/list}
 						</tbody>
 					</table>
-					#{/list} #{/if} #{else}
-
+					#{/list} 
+					#{/if}
+					#{else}
+					
 					<table class="ui fixed table">
 						<thead>
 							<tr>
