@@ -26,14 +26,17 @@ public class Leaderboard extends Controller {
 			switch (sort) {
 			case "social":
 				Collections.sort(users, new UserSocialComparator());
+				Logger.info("Sorting Leadaeboard by social users ");
 				break;
 
 			case "talkative":
 				Collections.sort(users, new UserTalkativeComparator());
+				Logger.info("Sorting Leadaeboard by talkative users ");
 				break;
 
 			default:
 				Collections.sort(users, new UserSocialComparator());
+				Logger.info("Sorting Leadaeboard by default ");
 
 			}
 		}

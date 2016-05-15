@@ -23,20 +23,24 @@ public class Home extends Controller {
 				switch (sort) {
 				case "date":
 					Collections.sort(user.inbox, new MessageDateComparator());
+					Logger.info("Sorting Messages by date ");
 					break;
 
 				case "user":
 					Collections.sort(user.inbox, new MessageFromComparator());
+					Logger.info("Sorting Messages by user ");
 					break;
 
 				case "con":
 					List<List<Message>> conversations = byConversation(user);
 					render(user, conversations);
+					Logger.info("Sorting Messages by conversation ");
 
 					break;
 
 				default:
 					Collections.sort(user.inbox, new MessageDateComparator());
+					Logger.info("Sorting Messages by default ");
 
 				}
 			}
