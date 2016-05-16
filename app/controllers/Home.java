@@ -11,27 +11,27 @@ import models.*;
 
 public class Home extends Controller {
 	public static void index() {
-		index("date");
+		index(1);
 
 	}
 
-	public static void index(String sort) {
+	public static void index(int sort) {
 		try {
 			String userId = session.get("logged_in_userid");
 			User user = User.findById(Long.parseLong(userId));
-			if (sort != null) {
+			if (sort != 1) {
 				switch (sort) {
-				case "date":
+				case 1:
 					Collections.sort(user.inbox, new MessageDateComparator());
 					Logger.info("Sorting Messages by date ");
 					break;
 
-				case "user":
+				case 2:
 					Collections.sort(user.inbox, new MessageFromComparator());
 					Logger.info("Sorting Messages by user ");
 					break;
 
-				case "con":
+				case 3:
 					List<List<Message>> conversations = byConversation(user);
 					render(user, conversations);
 					Logger.info("Sorting Messages by conversation ");

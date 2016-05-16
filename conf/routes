@@ -14,7 +14,7 @@ POST   /authenticate                            Accounts.authenticate
 POST   /register                                Accounts.register								
 
 # Home page
-GET     /home                                   Home.index(sort:String)
+GET     /home                                   Home.index(sort:int)
 GET     /home/drop/{id}                         Home.drop
 
 # Members page
@@ -22,7 +22,7 @@ GET     /members                                Members.index
 GET     /members/follow/{id}                    Members.follow
 
 # Leaderboard page
-GET		/leaderboard							Leaderboard.index(sort:String)
+GET		/leaderboard							Leaderboard.index(sort:int)
 
 # Profile page
 GET     /profile                                Profile.index

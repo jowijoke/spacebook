@@ -14,22 +14,22 @@ import models.*;
 public class Leaderboard extends Controller {
 
 	public static void index() {
-		index("social");
+		index(1);
 
 	}
 
-	public static void index(String sort) {
+	public static void index(int sort) {
 
 		List<User> users = User.findAll();
 
-		if (sort != null) {
+		if (sort != 1) {
 			switch (sort) {
-			case "social":
+			case 1:
 				Collections.sort(users, new UserSocialComparator());
 				Logger.info("Sorting Leadaeboard by social users ");
 				break;
 
-			case "talkative":
+			case 2:
 				Collections.sort(users, new UserTalkativeComparator());
 				Logger.info("Sorting Leadaeboard by talkative users ");
 				break;
