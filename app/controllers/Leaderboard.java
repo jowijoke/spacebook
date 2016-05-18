@@ -4,7 +4,7 @@ import play.*;
 import play.mvc.*;
 import utils.MessageDateComparator;
 import utils.MessageFromComparator;
-import utils.UserSocialComparator;
+//import utils.UserSocialComparator;
 import utils.UserTalkativeComparator;
 
 import java.util.*;
@@ -14,7 +14,7 @@ import models.*;
 public class Leaderboard extends Controller {
 
 	public static void index() {
-		index(1);
+		index(2);
 
 	}
 
@@ -25,7 +25,7 @@ public class Leaderboard extends Controller {
 		if (sort != 1) {
 			switch (sort) {
 			case 1:
-				Collections.sort(users, new UserSocialComparator());
+//				Collections.sort(users, new UserSocialComparator());
 				Logger.info("Sorting Leadaeboard by social users ");
 				break;
 
@@ -35,7 +35,7 @@ public class Leaderboard extends Controller {
 				break;
 
 			default:
-				Collections.sort(users, new UserSocialComparator());
+//				Collections.sort(users, new UserSocialComparator());
 				Logger.info("Sorting Leadaeboard by default ");
 
 			}
